@@ -1,0 +1,82 @@
+﻿@model B1.ViewModel.b6ViewModel
+
+@{
+    ViewBag.Title = "MostWatched";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+<h2 style="text-align:center">En Çok İzlenenler</h2>
+
+
+
+
+<table class="table table-bordered container" style=" border-collapse: collapse; border:1px solid black ; background-color:white">
+    <tbody style=" border-collapse: collapse;   border: 1px solid black;">
+        <tr style="   border-collapse: collapse;   border: 1px solid black;">
+
+            <td class="col-md-3" style="text-align:right  ">
+                <div>
+                    @foreach (var v in Model.u)
+                    {
+                        <div style="height:160px ">
+
+                            <label style="font-size:12px">@(v.u_trh) tarihinde yayınlandı. <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></label>
+                            <br />
+                            <br />
+                            <br />
+                            <label style="font-size:11px;color:red">@v.Haber.tiklanma_s kez izlendi.</label>
+                        </div>
+                    }
+                </div>
+            </td>
+
+            <td class="col-md-4" style="   border-collapse: collapse;">
+
+                @foreach (var v in Model.video)
+                {
+
+                    var y = Url.Content(v.haber_url);
+                    <div style="height:160px">
+
+                        <form>
+
+                            <a href="/Haber/Detay/@v.haber_id">
+
+                                <div class="col-md-12 form-group">
+                                    <iframe style="width:250px; height:140px"   src="@Url.Content(y)"></iframe>
+                                </div>
+                            </a>
+
+                        </form>
+
+                    </div>
+                }
+
+            </td>
+
+            <td class="col-md-5" style="text-align:left">
+
+                @foreach (var vvv in Model.video)
+                {
+                    <a href="/Haber/Detay/@vvv.haber_id">
+                        <div style="height:160px;">
+                            @vvv.haber_name
+                        </div>
+                    </a>
+                }
+
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+

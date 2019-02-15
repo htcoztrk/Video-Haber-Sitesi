@@ -1,0 +1,165 @@
+﻿@model  B1.ViewModel.b1ViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Video Listesi</h2>
+
+
+
+<table class="table table-bordered container" style=" border-collapse: collapse; border:1px solid black ; background-color:white">
+    <tbody style=" border-collapse: collapse;   border: 1px solid black;">
+        <tr style="   border-collapse: collapse;   border: 1px solid black;">
+
+            <td class="col-md-3" style="text-align:right  ">
+                <div>
+                    @foreach (var vv in Model.uploads)
+                    {
+                        <div style="height:160px ">
+                            @*@if (DateTime.Now.Year == vv.u_trh.Value.Year)
+                                 {
+                                   if (DateTime.Now.Month == vv.u_trh.Value.Month)
+                                   {
+                                      if (DateTime.Now.Day == vv.u_trh.Value.Day)
+                                      {
+                                   <label class="">@(DateTime.Now.Hour - vv.u_saat.Value.Hours) saat önce<span class="glyphicon glyphicon-globe" aria-hidden="true"></span> </label>
+                                        }
+                                        else
+                                        {
+                                      <label class="">@(DateTime.Now.Day - vv.u_trh.Value.Day) gün önce<span class="glyphicon glyphicon-globe" aria-hidden="true"></span> </label>
+                                        }
+
+                                   }
+                                   else
+                                   {
+                                             <label class="">@(DateTime.Now.Month - vv.u_trh.Value.Month) ay önce<span class="glyphicon glyphicon-globe" aria-hidden="true"></span> </label>
+                                    }
+
+                                }
+                                else
+                                {
+                                      <label class="">@(DateTime.Now.Year - vv.u_trh.Value.Year) yıl önce <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></label>
+                                }*@
+                            <label style="">@(vv.u_trh.Value) tarihinde yayınlandı. <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></label>
+                        </div>
+                    }
+                </div>
+            </td>
+
+            <td class="col-md-4" style="   border-collapse: collapse;  ">
+                
+                @foreach (var v in Model.habers)
+                {
+
+                    var y = Url.Content(v.haber_url);
+                    <div style="height:150px">
+
+                        <form>
+                            <a href="/Video/Play/@v.haber_id">
+
+                                <div class="col-md-12 form-group">
+                                    <iframe style="width:250px; height:140px" controls src="@y"></iframe>
+                                </div>
+                            </a>
+                        </form>
+
+                    </div>
+                }
+               
+            </td>
+
+            <td class="col-md-5" style="text-align:left">
+
+                @foreach (var vvv in Model.habers)
+                {
+                    <a href="/Video/Play/@vvv.haber_id">
+                        <div style="height:160px">
+                            @vvv.haber_name
+                        </div>
+                    </a>
+                 }
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+    @*<div class="col-md-2">
+            @foreach (var vv in Model.uploads)
+             {
+            <div>
+                @if (DateTime.Now.Year == vv.u_trh.Value.Year)
+                {
+                if (DateTime.Now.Month == vv.u_trh.Value.Month)
+                {
+                if (DateTime.Now.Day == vv.u_trh.Value.Day)
+                {
+                <label class="form-control">@(DateTime.Now.Hour - vv.u_saat.Value.Hours) saat önce </label>
+                }
+                <label class="form-control">@(DateTime.Now.Day - vv.u_trh.Value.Day) gün önce </label>
+                }
+                <label class="form-control">@(DateTime.Now.Month - vv.u_trh.Value.Month) ay önce </label>
+
+                }
+                <label class="form-control">@(DateTime.Now.Year - vv.u_trh.Value.Year) yıl önce </label>
+            </div>
+
+
+
+
+            }
+
+        </div>*@
+    @*<div class="col-md.10">
+            @foreach (var v in Model.habers)
+             {
+
+                 var y = Url.Content(v.haber_url);
+            <div>
+
+                <form>
+                    <div class="form-group">
+
+                        <iframe width="420" height="270" controls
+                                src="@y"></iframe>
+                    </div>
+                    <div class="form-group ">
+                        <button type="button" class="btn btn-default " aria-label="Left Align" style="text-align:left">
+                            <span class="glyphicon glyphicon-thumbs-up " aria-hidden="true">Beğen</span>
+                        </button>
+                        <button type="button" class="btn btn-default " aria-label="Left Align" style="text-align:center">
+                            <span class="glyphicon glyphicon-share-alt " aria-hidden="true">Paylaş</span>
+                        </button>
+                        <button type="button" class="btn btn-default " aria-label="Left Align" style="text-align:right">
+                            <span class="glyphicon glyphicon-comment " aria-hidden="true">Yorum Yap</span>
+                        </button>
+                    </div>
+                    <hr style="color:black" />
+                </form>
+
+               </div>
+             }
+        </div>*@
+
+
+
+</div>

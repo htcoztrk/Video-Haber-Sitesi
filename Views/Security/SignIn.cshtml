@@ -1,0 +1,28 @@
+﻿@model B1.Models.EntityFramework.Uye
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center">Giriş Sayfası</h1>
+
+<div class="container    " style="width:65%; z-index: 2; padding:50px 60px">
+
+    @using (Html.BeginForm("SignIn", "Security", FormMethod.Post))
+    {
+
+        <span id="reauth-email" class="reauth-email"></span>
+        
+        @Html.TextBoxFor(m => m.uye_name, new { @class = "form-control", placeholder = "name" })
+        <br />
+        @Html.PasswordFor(m => m.uye_password, new { @class = "form-control", placeholder = "password" })
+        <br />
+        @Html.TextBoxFor(m => m.uye_username, new { @class = "form-control", placeholder = "username" })
+        <br />
+        @Html.TextBoxFor(m => m.e_mail, new { @class = "form-control", placeholder = "email" })
+        <br />
+        <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">Kayıt Ol</button>
+
+    }
+
+</div>

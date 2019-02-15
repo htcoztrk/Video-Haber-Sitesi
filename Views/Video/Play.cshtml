@@ -1,0 +1,45 @@
+﻿@model B1.ViewModel.b2ViewModel
+@{
+    ViewBag.Title = "Play";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="background-color:antiquewhite;width:720px">
+
+    <div style="width:700px">
+
+        <div>
+            <iframe style="width:700px; height:460px" src="@Url.Content(Model.haber.haber_url)"></iframe>
+        </div>
+    </div>
+
+    <div style="width:700px">
+        <div class="col-md-4" style="text-align:left">
+            <button onclick="f1()" id="1" type="button" class="btn btn-default " aria-label="Left Align" style="text-align:left;">
+                <span class="glyphicon glyphicon-thumbs-up " aria-hidden="true"> Beğen</span>
+            </button>
+        </div>
+        <div class="col-md-4" style="text-align:center">
+            <button onclick="f1()"id="2" type="button" class="btn btn-default " aria-label="Left Align" style="text-align:center; ">
+                <span class="glyphicon glyphicon-share-alt " aria-hidden="true"> Paylaş</span>
+            </button>
+        </div>
+        <div class="col-md-4" style="text-align:right">
+            <button onclick="f1()"id="3" type="button" class="btn btn-default " aria-label="Left Align" style="text-align:right ">
+                <span class="glyphicon glyphicon-comment " aria-hidden="true"> Yorum Yap</span>
+            </button>
+        </div>
+    </div>
+
+    <div>
+
+        <div style="width:700px; font-size:18px">
+            @Model.haber.haber_aciklama
+        </div>
+    </div>
+</div>
+
+
+
+
+

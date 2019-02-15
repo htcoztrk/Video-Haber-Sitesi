@@ -1,0 +1,28 @@
+﻿@model B1.Models.EntityFramework.Uye
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="text-align:center">Giriş Sayfası</h1>
+<div class="container    " style="width:65%; z-index: 2; padding:50px 60px">
+
+    @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+    {
+
+        <span id="reauth-email" class="reauth-email"></span>
+        @*<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>*@
+        @Html.TextBoxFor(m => m.uye_name, new { @class = "form-control", placeholder = "name" })
+        <br/>
+        @Html.PasswordFor(m => m.uye_password, new { @class = "form-control", placeholder = "password" })
+        <div id="remember" class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">Giriş</button>
+
+    }
+
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model B1.Models.EntityFramework.Haber2
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center ;color:crimson;width:770px">@Model.haber_name</h1>
+<img style="width:770px; height:360px" src="@Url.Content(Model.hbr_src)" />
+<div><label style="color:crimson">@Model.tiklanma_s kez okundu</label></div>
+                 <div style="width:770px">
+
+                 
+                  <div class="col-md-4" style="text-align:left">
+                        <button id="1"type="button" class="btn btn-default " aria-label="Left Align" style="text-align:left;color:black;background-color:crimson ">
+                            <span class="glyphicon glyphicon-thumbs-up " aria-hidden="true"> Beğen</span>
+                        </button>
+                        </div>
+                <div class="col-md-4" style="text-align:center">
+                        <button id="2"type="button" class="btn btn-default " aria-label="Left Align" style="text-align:center; color:black;background-color:crimson ">
+                            <span class="glyphicon glyphicon-share-alt " aria-hidden="true"> Paylaş</span>
+                        </button>
+                    </div>
+                    <div class="col-md-4" style="text-align:right">
+                        <button id="3" type="button" class="btn btn-default " aria-label="Left Align" style="text-align:left;color:black;background-color:crimson  ">
+                            <span class="glyphicon glyphicon-comment " aria-hidden="true"> Yorum Yap</span>
+                        </button>
+                    </div>
+                     </div>
+
+                 <div  style="width:770px">
+                     <p style="font-size:17px;">@Model.haber_aciklama</p>
+                 </div>

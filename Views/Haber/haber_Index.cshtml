@@ -1,0 +1,71 @@
+﻿@model IEnumerable<B1.Models.EntityFramework.Haber2>
+@{
+    ViewBag.Title = "haber_Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h2 style="text-align:center">Haber Listesi</h2>
+
+
+
+<table class="table table-bordered container" style=" border-collapse: collapse; border:1px solid black ; background-color:white">
+    <tbody style=" border-collapse: collapse;   border: 1px solid black;">
+        <tr style="   border-collapse: collapse;   border: 1px solid black;">
+
+            <td class="col-md-3" style="text-align:right  ">
+                <div>
+                    @foreach (var v in Model)
+                    {
+                        <div style="height:160px ">
+                         
+                            <label style="font-size:12px">@(v.hbr_trh) tarihinde yayınlandı. <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></label>
+                        </div>
+                    }
+                </div>
+            </td>
+
+            <td class="col-md-4" style="   border-collapse: collapse;">
+              
+                @foreach (var v in Model)
+                {
+
+                    var y = Url.Content(v.hbr_src);
+                    <div style="height:150px">
+
+                        <form>
+
+                            <a href="/Haber/Detay/@v.haber_id">
+
+                                <div class="col-md-12 form-group">
+                                    <image style="width:250px; height:140px"  src="@y"></image>
+                                </div>
+                            </a>
+
+                        </form>
+
+                    </div>
+                }
+
+            </td>
+
+            <td class="col-md-5" style="text-align:left">
+
+                @foreach (var vvv in Model)
+                {
+                    <a href="/Haber/Detay/@vvv.haber_id">
+                        <div style="height:160px;">
+                            @vvv.haber_name
+                        </div>
+                    </a>
+                }
+
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+

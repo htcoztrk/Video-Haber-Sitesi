@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BTU1ModelStoreContainer" CdmEntityContainer="BTU1Entities">
+    <EntitySetMapping Name="Begenmes">
+      <EntityTypeMapping TypeName="BTU1Model.Begenme">
+        <MappingFragment StoreEntitySet="Begenme">
+          <ScalarProperty Name="b_trh" ColumnName="b_trh" />
+          <ScalarProperty Name="b_saat" ColumnName="b_saat" />
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="BTU1Model.Favorite">
+        <MappingFragment StoreEntitySet="Favorite">
+          <ScalarProperty Name="f_id" ColumnName="f_id" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+          <ScalarProperty Name="f_time" ColumnName="f_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Habers">
+      <EntityTypeMapping TypeName="BTU1Model.Haber">
+        <MappingFragment StoreEntitySet="Haber">
+          <ScalarProperty Name="haber_aciklama" ColumnName="haber_aciklama" />
+          <ScalarProperty Name="haber_url" ColumnName="haber_url" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+          <ScalarProperty Name="haber_name" ColumnName="haber_name" />
+          <ScalarProperty Name="tiklanma_s" ColumnName="tiklanma_s" />
+          <ScalarProperty Name="begeni_s" ColumnName="begeni_s" />
+          <ScalarProperty Name="paylasim_s" ColumnName="paylasim_s" />
+          <ScalarProperty Name="yorum_s" ColumnName="yorum_s" />
+          <ScalarProperty Name="haber_turu" ColumnName="haber_turu" />
+          <ScalarProperty Name="kategory_id" ColumnName="kategory_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoris">
+      <EntityTypeMapping TypeName="BTU1Model.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_name" ColumnName="kategori_name" />
+          <ScalarProperty Name="video_sayisi" ColumnName="video_sayisi" />
+          <ScalarProperty Name="haber_sayisi" ColumnName="haber_sayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paylasims">
+      <EntityTypeMapping TypeName="BTU1Model.Paylasim">
+        <MappingFragment StoreEntitySet="Paylasim">
+          <ScalarProperty Name="p_trh" ColumnName="p_trh" />
+          <ScalarProperty Name="p_saat" ColumnName="p_saat" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uploads">
+      <EntityTypeMapping TypeName="BTU1Model.Upload">
+        <MappingFragment StoreEntitySet="Upload">
+          <ScalarProperty Name="haber2_trh" ColumnName="haber2_trh" />
+          <ScalarProperty Name="u_trh" ColumnName="u_trh" />
+          <ScalarProperty Name="u_saat" ColumnName="u_saat" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uyes">
+      <EntityTypeMapping TypeName="BTU1Model.Uye">
+        <MappingFragment StoreEntitySet="Uye">
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+          <ScalarProperty Name="uye_name" ColumnName="uye_name" />
+          <ScalarProperty Name="uye_password" ColumnName="uye_password" />
+          <ScalarProperty Name="uye_username" ColumnName="uye_username" />
+          <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yorums">
+      <EntityTypeMapping TypeName="BTU1Model.Yorum">
+        <MappingFragment StoreEntitySet="Yorum">
+          <ScalarProperty Name="y_trh" ColumnName="y_trh" />
+          <ScalarProperty Name="y_saat" ColumnName="y_saat" />
+          <ScalarProperty Name="y_id" ColumnName="y_id" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Haber2">
+      <EntityTypeMapping TypeName="BTU1Model.Haber2">
+        <MappingFragment StoreEntitySet="Haber2">
+          <ScalarProperty Name="hbr_trh" ColumnName="hbr_trh" />
+          <ScalarProperty Name="hbr_src" ColumnName="hbr_src" />
+          <ScalarProperty Name="kategory_id" ColumnName="kategory_id" />
+          <ScalarProperty Name="haber_aciklama" ColumnName="haber_aciklama" />
+          <ScalarProperty Name="yorum_s" ColumnName="yorum_s" />
+          <ScalarProperty Name="paylasim_s" ColumnName="paylasim_s" />
+          <ScalarProperty Name="begeni_s" ColumnName="begeni_s" />
+          <ScalarProperty Name="tiklanma_s" ColumnName="tiklanma_s" />
+          <ScalarProperty Name="haber_name" ColumnName="haber_name" />
+          <ScalarProperty Name="haber_id" ColumnName="haber_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

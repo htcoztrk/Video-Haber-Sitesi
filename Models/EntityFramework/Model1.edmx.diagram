@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62c01887500548d3bde1a8752b185089" Name="Diagram1">
+        <EntityTypeShape EntityType="BTU1Model.Begenme" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Favorite" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Haber" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Kategori" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Paylasim" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Upload" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Uye" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTU1Model.Yorum" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="BTU1Model.fk_haberr_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_uyee_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_hhh_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_uuu_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_h_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_ha_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_haber_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_kategory_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_uye_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_uy_id" ManuallyRouted="false" />
+        <AssociationConnector Association="BTU1Model.fk_u_id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BTU1Model.Haber2" Width="1.5" PointX="3" PointY="12.875" />
+        <AssociationConnector Association="BTU1Model.fk_kategoryyyy_id" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

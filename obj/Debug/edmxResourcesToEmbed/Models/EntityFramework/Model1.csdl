@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BTU1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Begenme">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_trh" Type="DateTime" Precision="0" />
+    <Property Name="b_saat" Type="Time" Precision="7" />
+    <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_id" Type="Int32" />
+    <Property Name="uye_id" Type="Int32" />
+    <NavigationProperty Name="Haber" Relationship="Self.fk_haberr_id" FromRole="Begenme" ToRole="Haber" />
+    <NavigationProperty Name="Uye" Relationship="Self.fk_uyee_id" FromRole="Begenme" ToRole="Uye" />
+  </EntityType>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="f_id" />
+    </Key>
+    <Property Name="f_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_id" Type="Int32" />
+    <Property Name="uye_id" Type="Int32" />
+    <Property Name="f_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Haber" Relationship="Self.fk_hhh_id" FromRole="Favorite" ToRole="Haber" />
+    <NavigationProperty Name="Uye" Relationship="Self.fk_uuu_id" FromRole="Favorite" ToRole="Uye" />
+  </EntityType>
+  <EntityType Name="Haber">
+    <Key>
+      <PropertyRef Name="haber_id" />
+    </Key>
+    <Property Name="haber_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="tiklanma_s" Type="Int32" />
+    <Property Name="begeni_s" Type="Int32" />
+    <Property Name="paylasim_s" Type="Int32" />
+    <Property Name="yorum_s" Type="Int32" />
+    <Property Name="haber_turu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="kategory_id" Type="Int32" />
+    <NavigationProperty Name="Begenmes" Relationship="Self.fk_haberr_id" FromRole="Haber" ToRole="Begenme" />
+    <NavigationProperty Name="Favorites" Relationship="Self.fk_hhh_id" FromRole="Haber" ToRole="Favorite" />
+    <NavigationProperty Name="Yorums" Relationship="Self.fk_h_id" FromRole="Haber" ToRole="Yorum" />
+    <NavigationProperty Name="Uploads" Relationship="Self.fk_ha_id" FromRole="Haber" ToRole="Upload" />
+    <NavigationProperty Name="Paylasims" Relationship="Self.fk_haber_id" FromRole="Haber" ToRole="Paylasim" />
+    <NavigationProperty Name="Kategori" Relationship="Self.fk_kategory_id" FromRole="Haber" ToRole="Kategori" />
+    <Property Name="haber_url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="haber_aciklama" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="kategori_id" />
+    </Key>
+    <Property Name="kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kategori_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="video_sayisi" Type="Int32" />
+    <Property Name="haber_sayisi" Type="Int32" />
+    <NavigationProperty Name="Habers" Relationship="Self.fk_kategory_id" FromRole="Kategori" ToRole="Haber" />
+    <NavigationProperty Name="Haber2" Relationship="BTU1Model.fk_kategoryyyy_id" FromRole="Kategori" ToRole="Haber2" />
+  </EntityType>
+  <EntityType Name="Paylasim">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_trh" Type="DateTime" Precision="0" />
+    <Property Name="p_saat" Type="Time" Precision="7" />
+    <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uye_id" Type="Int32" />
+    <Property Name="haber_id" Type="Int32" />
+    <NavigationProperty Name="Haber" Relationship="Self.fk_haber_id" FromRole="Paylasim" ToRole="Haber" />
+    <NavigationProperty Name="Uye" Relationship="Self.fk_uye_id" FromRole="Paylasim" ToRole="Uye" />
+  </EntityType>
+  <EntityType Name="Upload">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_trh" Type="DateTime" Precision="0" />
+    <Property Name="u_saat" Type="Time" Precision="7" />
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_id" Type="Int32" />
+    <Property Name="uye_id" Type="Int32" />
+    <NavigationProperty Name="Haber" Relationship="Self.fk_ha_id" FromRole="Upload" ToRole="Haber" />
+    <NavigationProperty Name="Uye" Relationship="Self.fk_uy_id" FromRole="Upload" ToRole="Uye" />
+    <Property Name="haber2_trh" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Uye">
+    <Key>
+      <PropertyRef Name="uye_id" />
+    </Key>
+    <Property Name="uye_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uye_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="uye_password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="uye_username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Begenmes" Relationship="Self.fk_uyee_id" FromRole="Uye" ToRole="Begenme" />
+    <NavigationProperty Name="Favorites" Relationship="Self.fk_uuu_id" FromRole="Uye" ToRole="Favorite" />
+    <NavigationProperty Name="Paylasims" Relationship="Self.fk_uye_id" FromRole="Uye" ToRole="Paylasim" />
+    <NavigationProperty Name="Uploads" Relationship="Self.fk_uy_id" FromRole="Uye" ToRole="Upload" />
+    <NavigationProperty Name="Yorums" Relationship="Self.fk_u_id" FromRole="Uye" ToRole="Yorum" />
+  </EntityType>
+  <EntityType Name="Yorum">
+    <Key>
+      <PropertyRef Name="y_id" />
+    </Key>
+    <Property Name="y_trh" Type="DateTime" Precision="0" />
+    <Property Name="y_saat" Type="Time" Precision="7" />
+    <Property Name="y_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_id" Type="Int32" />
+    <Property Name="uye_id" Type="Int32" />
+    <NavigationProperty Name="Haber" Relationship="Self.fk_h_id" FromRole="Yorum" ToRole="Haber" />
+    <NavigationProperty Name="Uye" Relationship="Self.fk_u_id" FromRole="Yorum" ToRole="Uye" />
+  </EntityType>
+  <Association Name="fk_haberr_id">
+    <End Role="Haber" Type="Self.Haber" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Begenme" Type="Self.Begenme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="haber_id" />
+      </Principal>
+      <Dependent Role="Begenme">
+        <PropertyRef Name="haber_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uyee_id">
+    <End Role="Uye" Type="Self.Uye" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Begenme" Type="Self.Begenme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uye">
+        <PropertyRef Name="uye_id" />
+      </Principal>
+      <Dependent Role="Begenme">
+        <PropertyRef Name="uye_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hhh_id">
+    <End Role="Haber" Type="Self.Haber" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="haber_id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="haber_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uuu_id">
+    <End Role="Uye" Type="Self.Uye" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uye">
+        <PropertyRef Name="uye_id" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="uye_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_h_id">
+    <End Role="Haber" Type="Self.Haber" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="haber_id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="haber_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ha_id">
+    <End Role="Haber" Type="Self.Haber" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Upload" Type="Self.Upload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="haber_id" />
+      </Principal>
+      <Dependent Role="Upload">
+        <PropertyRef Name="haber_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_haber_id">
+    <End Role="Haber" Type="Self.Haber" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Paylasim" Type="Self.Paylasim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Haber">
+        <PropertyRef Name="haber_id" />
+      </Principal>
+      <Dependent Role="Paylasim">
+        <PropertyRef Name="haber_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_kategory_id">
+    <End Role="Kategori" Type="Self.Kategori" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Haber" Type="Self.Haber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="kategori_id" />
+      </Principal>
+      <Dependent Role="Haber">
+        <PropertyRef Name="kategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uye_id">
+    <End Role="Uye" Type="Self.Uye" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Paylasim" Type="Self.Paylasim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uye">
+        <PropertyRef Name="uye_id" />
+      </Principal>
+      <Dependent Role="Paylasim">
+        <PropertyRef Name="uye_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_uy_id">
+    <End Role="Uye" Type="Self.Uye" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Upload" Type="Self.Upload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uye">
+        <PropertyRef Name="uye_id" />
+      </Principal>
+      <Dependent Role="Upload">
+        <PropertyRef Name="uye_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_u_id">
+    <End Role="Uye" Type="Self.Uye" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Yorum" Type="Self.Yorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uye">
+        <PropertyRef Name="uye_id" />
+      </Principal>
+      <Dependent Role="Yorum">
+        <PropertyRef Name="uye_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BTU1Entities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Begenmes" EntityType="Self.Begenme" />
+    <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+    <EntitySet Name="Habers" EntityType="Self.Haber" />
+    <EntitySet Name="Kategoris" EntityType="Self.Kategori" />
+    <EntitySet Name="Paylasims" EntityType="Self.Paylasim" />
+    <EntitySet Name="Uploads" EntityType="Self.Upload" />
+    <EntitySet Name="Uyes" EntityType="Self.Uye" />
+    <EntitySet Name="Yorums" EntityType="Self.Yorum" />
+    <AssociationSet Name="fk_haberr_id" Association="Self.fk_haberr_id">
+      <End Role="Haber" EntitySet="Habers" />
+      <End Role="Begenme" EntitySet="Begenmes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uyee_id" Association="Self.fk_uyee_id">
+      <End Role="Uye" EntitySet="Uyes" />
+      <End Role="Begenme" EntitySet="Begenmes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hhh_id" Association="Self.fk_hhh_id">
+      <End Role="Haber" EntitySet="Habers" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uuu_id" Association="Self.fk_uuu_id">
+      <End Role="Uye" EntitySet="Uyes" />
+      <End Role="Favorite" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="fk_h_id" Association="Self.fk_h_id">
+      <End Role="Haber" EntitySet="Habers" />
+      <End Role="Yorum" EntitySet="Yorums" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ha_id" Association="Self.fk_ha_id">
+      <End Role="Haber" EntitySet="Habers" />
+      <End Role="Upload" EntitySet="Uploads" />
+    </AssociationSet>
+    <AssociationSet Name="fk_haber_id" Association="Self.fk_haber_id">
+      <End Role="Haber" EntitySet="Habers" />
+      <End Role="Paylasim" EntitySet="Paylasims" />
+    </AssociationSet>
+    <AssociationSet Name="fk_kategory_id" Association="Self.fk_kategory_id">
+      <End Role="Kategori" EntitySet="Kategoris" />
+      <End Role="Haber" EntitySet="Habers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uye_id" Association="Self.fk_uye_id">
+      <End Role="Uye" EntitySet="Uyes" />
+      <End Role="Paylasim" EntitySet="Paylasims" />
+    </AssociationSet>
+    <AssociationSet Name="fk_uy_id" Association="Self.fk_uy_id">
+      <End Role="Uye" EntitySet="Uyes" />
+      <End Role="Upload" EntitySet="Uploads" />
+    </AssociationSet>
+    <AssociationSet Name="fk_u_id" Association="Self.fk_u_id">
+      <End Role="Uye" EntitySet="Uyes" />
+      <End Role="Yorum" EntitySet="Yorums" />
+    </AssociationSet>
+    <EntitySet Name="Haber2" EntityType="BTU1Model.Haber2" />
+    <AssociationSet Name="fk_kategoryyyy_id" Association="BTU1Model.fk_kategoryyyy_id">
+      <End Role="Kategori" EntitySet="Kategoris" />
+      <End Role="Haber2" EntitySet="Haber2" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Haber2">
+    <Key>
+      <PropertyRef Name="haber_id" />
+    </Key>
+    <Property Name="haber_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="haber_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="tiklanma_s" Type="Int32" />
+    <Property Name="begeni_s" Type="Int32" />
+    <Property Name="paylasim_s" Type="Int32" />
+    <Property Name="yorum_s" Type="Int32" />
+    <Property Name="haber_aciklama" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="kategory_id" Type="Int32" />
+    <Property Name="hbr_src" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Kategori" Relationship="BTU1Model.fk_kategoryyyy_id" FromRole="Haber2" ToRole="Kategori" />
+    <Property Name="hbr_trh" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="fk_kategoryyyy_id">
+    <End Type="BTU1Model.Kategori" Role="Kategori" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="BTU1Model.Haber2" Role="Haber2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="kategori_id" />
+      </Principal>
+      <Dependent Role="Haber2">
+        <PropertyRef Name="kategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
